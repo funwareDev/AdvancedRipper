@@ -23,10 +23,21 @@ string[] filesInFirstFolder = Directory.GetFiles(pathToFirstFolder);
 string[] filesInSecondFolder = Directory.GetFiles(pathToSecondFolder);
 string[] filesInOutputFolder = Directory.GetFiles(outputFolder);
 
-Console.WriteLine($"AdvancedRipper. Made with <3 by funwareDev");
+Console.Write("\n\n\n");
+Console.WriteLine(
+    @"              _                               _ _____  _                       
+     /\      | |                             | |  __ \(_)                      
+    /  \   __| |_   ____ _ _ __   ___ ___  __| | |__) |_ _ __  _ __   ___ _ __ 
+   / /\ \ / _` \ \ / / _` | '_ \ / __/ _ \/ _` |  _  /| | '_ \| '_ \ / _ \ '__|
+  / ____ \ (_| |\ V / (_| | | | | (_|  __/ (_| | | \ \| | |_) | |_) |  __/ |   
+ /_/    \_\__,_| \_/ \__,_|_| |_|\___\___|\__,_|_|  \_\_| .__/| .__/ \___|_|   
+                                                        | |   | |              
+                                                        |_|   |_|              ");
+Console.Write("\n\n\n");
+
+
 Console.WriteLine($"There are {filesInFirstFolder.Length} files in audio folder.");
 Console.WriteLine($"There are {filesInSecondFolder.Length} files in video folder.");
-Console.WriteLine($"There are {filesInOutputFolder.Length} files ready in output folder.");
 
 for (var index = 0; index < filesInFirstFolder.Length; index++)
 {
@@ -38,30 +49,35 @@ for (var index = 0; index < filesInFirstFolder.Length; index++)
     var path = Path.Combine(outputFolder, newName);
 
     //if file was previously generated, we do not want to make this again
-    if (path.Equals(filesInOutputFolder[index]))
+    if (filesInOutputFolder.Contains(path))
     {
-        Console.WriteLine("File exists, skip");
+        Console.WriteLine($"{newName} is done.");
         continue;
     }
     
     ExtractAudio(filesInFirstFolder[index]);
     CombineVideoAndAudio(filesInSecondFolder[index], path);
+    Console.WriteLine($"{newName} is done.");
 }
 
 Console.WriteLine($"Now we are done.");
 
 void ExtractAudio(string filename)
 {
-    var extractAudioProcess = Process.Start("ffmpeg.exe", string.Format(extractAudioArgs, filename));
-    extractAudioProcess.WaitForExit();
+    var process = FfmpegProcessInNewConsole(string.Format(extractAudioArgs, filename));
+
+    process.Start();
+    process.WaitForExit();
 
     if (startOfFileSeconds == null)
     {
         return;
     }
     
-    var cutAudioProcess = Process.Start("ffmpeg.exe", string.Format(cutAudioArgs, startOfFileSeconds));
-    cutAudioProcess.WaitForExit();    
+    var cutAudioProcess = FfmpegProcessInNewConsole(string.Format(cutAudioArgs, startOfFileSeconds));
+    cutAudioProcess.Start();
+    cutAudioProcess.WaitForExit();
+    
     File.Delete("output-audio.aac");
     File.Move("cut-output-audio.aac", "output-audio.aac");
 }
@@ -69,7 +85,8 @@ void ExtractAudio(string filename)
 void CombineVideoAndAudio(string fileWithVideo, string outputPath)
 {
     var newArgs = string.Format(combineAudioWithVideoArgs, fileWithVideo, "output-audio.aac", outputPath);
-    var processOfCombiningAudioWithVideo = Process.Start("ffmpeg.exe", newArgs);
+    var processOfCombiningAudioWithVideo = FfmpegProcessInNewConsole(newArgs);
+    processOfCombiningAudioWithVideo.Start();
     processOfCombiningAudioWithVideo.WaitForExit();
 }
 
@@ -87,5 +104,14 @@ void RenameFile(string filePath, string folderPath)
 
     // Перейменування файлу
     File.Move(filePath, newFilePath);
+}
+
+Process FfmpegProcessInNewConsole(string ffmpegArguments)
+{
+    var process = new Process();
+    process.StartInfo.FileName = "ffmpeg.exe";
+    process.StartInfo.Arguments = ffmpegArguments;
+    process.StartInfo.UseShellExecute = true;
+    return process;
 }
 
