@@ -23,6 +23,11 @@ string[] filesInFirstFolder = Directory.GetFiles(pathToFirstFolder);
 string[] filesInSecondFolder = Directory.GetFiles(pathToSecondFolder);
 string[] filesInOutputFolder = Directory.GetFiles(outputFolder);
 
+Console.WriteLine($"AdvancedRipper. Made with <3 by funwareDev");
+Console.WriteLine($"There are {filesInFirstFolder.Length} files in audio folder.");
+Console.WriteLine($"There are {filesInSecondFolder.Length} files in video folder.");
+Console.WriteLine($"There are {filesInOutputFolder.Length} files ready in output folder.");
+
 for (var index = 0; index < filesInFirstFolder.Length; index++)
 {
     File.Delete("cut-output-audio.aac");
@@ -35,12 +40,15 @@ for (var index = 0; index < filesInFirstFolder.Length; index++)
     //if file was previously generated, we do not want to make this again
     if (path.Equals(filesInOutputFolder[index]))
     {
+        Console.WriteLine("File exists, skip");
         continue;
     }
     
     ExtractAudio(filesInFirstFolder[index]);
     CombineVideoAndAudio(filesInSecondFolder[index], path);
 }
+
+Console.WriteLine($"Now we are done.");
 
 void ExtractAudio(string filename)
 {
