@@ -1,0 +1,15 @@
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\bin\Debug\net7.0\AdvancedRipper.exe
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\bin\Debug\net7.0\AdvancedRipper.deps.json
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\bin\Debug\net7.0\AdvancedRipper.runtimeconfig.json
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\bin\Debug\net7.0\AdvancedRipper.dll
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\bin\Debug\net7.0\AdvancedRipper.pdb
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.csproj.AssemblyReference.cache
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.GeneratedMSBuildEditorConfig.editorconfig
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.AssemblyInfoInputs.cache
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.AssemblyInfo.cs
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.csproj.CoreCompileInputs.cache
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.dll
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\refint\AdvancedRipper.dll
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.pdb
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\AdvancedRipper.genruntimeconfig.cache
+D:\kosik\Documents\AdvancedRipper\AdvancedRipper\obj\Debug\net7.0\ref\AdvancedRipper.dll

@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedRipper", "AdvancedRipper.csproj", "{7DEF2C28-63F9-48C0-B0D1-27BAD4D9BFBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DEF2C28-63F9-48C0-B0D1-27BAD4D9BFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DEF2C28-63F9-48C0-B0D1-27BAD4D9BFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DEF2C28-63F9-48C0-B0D1-27BAD4D9BFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DEF2C28-63F9-48C0-B0D1-27BAD4D9BFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
